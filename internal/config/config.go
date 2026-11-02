@@ -65,6 +65,19 @@ type Config struct {
 	Plugins   []Plugin             `json:"plugins" yaml:"plugins"`
 	Rules     []Rule               `json:"rules" yaml:"rules"`
 	Options   map[string]yaml.Node `json:"options" yaml:"options"`
+	Contract  ContractSettings     `json:"contract,omitempty" yaml:"contract,omitempty"`
+}
+
+// ContractSettings controls the opt-in query contract checking flow. The
+// flow is disabled unless Enabled is explicitly set to true. When disabled,
+// the generate, vet and verify commands behave exactly as before.
+type ContractSettings struct {
+	// Enabled turns on contract snapshot checking and updates.
+	Enabled bool `json:"enabled" yaml:"enabled"`
+	// Dir is the directory, relative to the configuration file, where
+	// per-package contract snapshots are stored. It defaults to
+	// ".sqlc/contracts" when empty.
+	Dir string `json:"dir,omitempty" yaml:"dir,omitempty"`
 }
 
 type Server struct {
@@ -125,8 +138,8 @@ type SQL struct {
 // AnalyzerDatabase represents the database analyzer setting.
 // It can be a boolean (true/false) or the string "only" for database-only mode.
 type AnalyzerDatabase struct {
-	value   *bool  // nil means not set, true/false for boolean values
-	isOnly  bool   // true when set to "only"
+	value  *bool // nil means not set, true/false for boolean values
+	isOnly bool  // true when set to "only"
 }
 
 // IsEnabled returns true if the database analyzer should be used.

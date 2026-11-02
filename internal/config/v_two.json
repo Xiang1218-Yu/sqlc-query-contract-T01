@@ -449,6 +449,17 @@
                     }
                 }
             }
+        },
+        "contract": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "dir": {
+                    "type": "string"
+                }
+            }
         }
     }
 }

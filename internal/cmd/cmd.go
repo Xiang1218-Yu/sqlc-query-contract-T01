@@ -41,6 +41,7 @@ func Do(args []string, stdin io.Reader, stdout io.Writer, stderr io.Writer) int 
 	rootCmd.PersistentFlags().Bool("remote", false, "enable remote execution (default: false)")
 
 	rootCmd.AddCommand(checkCmd)
+	rootCmd.AddCommand(NewCmdContract())
 	rootCmd.AddCommand(createDBCmd)
 	rootCmd.AddCommand(diffCmd)
 	rootCmd.AddCommand(genCmd)
