@@ -1,0 +1,28 @@
+{
+  "version": "1",
+  "cloud": {
+    "project": "01HAQMMECEYQYKFJN8MP16QC41"
+  },
+  "packages": [
+    {
+      "path": "postgresql",
+      "name": "batch",
+      "schema": "postgresql/schema.sql",
+      "queries": "postgresql/query.sql",
+      "engine": "postgresql",
+      "database": {
+        "uri": "${VET_TEST_EXAMPLES_POSTGRES_BATCH}"
+      },
+      "analyzer": {
+        "database": false
+      },
+      "rules": [
+        "sqlc/db-prepare"
+      ],
+      "sql_package": "pgx/v5",
+      "emit_json_tags": true,
+      "emit_prepared_queries": true,
+      "emit_interface": true
+    }
+  ]
+}

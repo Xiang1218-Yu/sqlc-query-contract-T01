@@ -1,0 +1,60 @@
+{
+  "version": "1",
+  "cloud": {
+    "project": "01HAQMMECEYQYKFJN8MP16QC41"
+  },
+  "packages": [
+    {
+      "path": "postgresql",
+      "name": "ondeck",
+      "schema": "postgresql/schema",
+      "queries": "postgresql/query",
+      "engine": "postgresql",
+      "sql_package": "database/sql",
+      "database": {
+        "uri": "${VET_TEST_EXAMPLES_POSTGRES_ONDECK}"
+      },
+      "analyzer": {
+        "database": false
+      },
+      "rules": [
+        "sqlc/db-prepare"
+      ],
+      "emit_json_tags": true,
+      "emit_prepared_queries": true,
+      "emit_interface": true
+    },
+    {
+    "path": "mysql",
+      "name": "ondeck",
+      "schema": "mysql/schema",
+      "queries": "mysql/query",
+      "engine": "mysql",
+      "database": {
+        "uri": "${VET_TEST_EXAMPLES_MYSQL_ONDECK}"
+      },
+      "rules": [
+        "sqlc/db-prepare"
+      ],
+      "emit_json_tags": true,
+      "emit_prepared_queries": true,
+      "emit_interface": true
+    },
+    {
+      "path": "sqlite",
+      "name": "ondeck",
+      "schema": "sqlite/schema",
+      "queries": "sqlite/query",
+      "engine": "sqlite",
+      "database": {
+        "uri": "file:ondeck?mode=memory&cache=shared"
+      },
+      "rules": [
+        "sqlc/db-prepare"
+      ],
+      "emit_json_tags": true,
+      "emit_prepared_queries": true,
+      "emit_interface": true
+    }
+  ]
+}

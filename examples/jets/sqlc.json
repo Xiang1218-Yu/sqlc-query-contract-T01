@@ -1,0 +1,25 @@
+{
+  "version": "1",
+  "cloud": {
+    "project": "01HAQMMECEYQYKFJN8MP16QC41"
+  },
+  "packages": [
+    {
+      "path": "postgresql",
+      "name": "jets",
+      "schema": "postgresql/schema.sql",
+      "queries": "postgresql/query-building.sql",
+      "engine": "postgresql",
+      "sql_package": "pgx/v5",
+      "database": {
+        "uri": "${VET_TEST_EXAMPLES_POSTGRES_JETS}"
+      },
+      "analyzer": {
+        "database": false
+      },
+      "rules": [
+        "sqlc/db-prepare"
+      ]
+    }
+  ]
+}
